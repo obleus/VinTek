@@ -1,0 +1,46 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VinTek</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body class="bg-purple-900">
+    <div class="wrapper">
+      <header class="flex flex-row flex-nowrap justify-between py-3 px-10">
+        <h1 class="text-3xl font-bold underline">
+          <a href="/">VinTek</a>
+        </h1>
+        <div>
+          <input
+            type="search"
+            name="product-search"
+            id="product-search"
+            placeholder="search..."
+          />
+        </div>
+        <nav class="flex-row flex-nowrap justify-between">
+          {{#if loggedIn}}
+            <a href="/dashboard">My Account</a>
+            <button id="logout" class="btn-no-style">Logout</button>
+          {{else}}
+            <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
+      <footer>
+        Thanks for visiting!
+      </footer>
+    </div>
+
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+
+</html>

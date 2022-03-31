@@ -1,26 +1,31 @@
 {
-  "name": "hacker-news-clone",
+  "name": "vintek",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "dev": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css",
+    "start": "node server",
+    "watch:dev": "nodemon -e 'handlebars' -x npm run dev",
+    "watch": "run-p watch:dev start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^6.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^6.0.3",
     "express-session": "^1.17.0",
     "handlebars": "^4.7.3",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5"
   },
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^27.5.1",
+    "tailwindcss": "^3.0.23"
   }
 }
