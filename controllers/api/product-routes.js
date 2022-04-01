@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category, Order } = require('../../models');
+const { Product, Category, Order, User } = require('../../models');
 
 // The `/api/products` endpoint
 
@@ -7,7 +7,7 @@ const { Product, Category, Order } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   Product.findAll({
-    include: [{ model: Category, Order }]
+    include: [{ model: Category }, { model: Order, through: User }]
   })
   .then(dbProductData => res.json(dbProductData))
     .catch(err => {
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   Product.findOne({
-    include: [{ model: Category, Order }],
+    include: [{ model: Category }, { model: Order, through: User }],
     where: {
       id: req.params.id
     }
@@ -57,13 +57,13 @@ router.post('/', (req, res) => {
   .then((product) => {
     // if there's product tags, we need to create pairings to bulk create in the ProductTag model
     if (req.body.orderIds) {
-      const productTagIdArr = req.body.orderIds.map((order_id) => {
+      const productOrderIdArr = req.body.orderIds.map((order_id) => {
         return {
           product_id: product.id,
           order_id,
         };
       });
-      return ProductTag.bulkCreate(productTagIdArr);
+      return ProductOrder.bulkCreate(productOrderIdArr);
     }
     // if no product tags, just respond
     res.status(200).json(product);
@@ -84,7 +84,7 @@ router.put('/:id', (req, res) => {
   })
     .then((product) => {
       // find all associated order from ProductOrder
-      return productOrder.findAll({ where: { product_id: req.params.id, order_id: req.params.id } });
+      return ProductOrder.findAll({ where: { product_id: req.params.id, order_id: req.params.id } });
     })
     .then((productOrder) => {
       // get list of current order_ids
@@ -109,7 +109,7 @@ router.put('/:id', (req, res) => {
         ProductOrder.bulkCreate(newProductOrder),
       ]);
     })
-    .then((updatedProductTags) => res.json(updatedProductTags))
+    .then((updatedProductOrder) => res.json(updatedProductOrder))
     .catch((err) => {
       // console.log(err);
       res.status(400).json(err);
