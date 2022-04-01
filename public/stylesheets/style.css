@@ -468,6 +468,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -476,24 +481,73 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .w-64 {
   width: 16rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-10\/12 {
+  width: 83.333333%;
+}
+
+.basis-1\/4 {
+  flex-basis: 25%;
+}
+
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+
+.cursor-normal {
+  cursor: url(/assets/img/normal.cur), auto;
+}
+
+.auto-cols-auto {
+  grid-auto-columns: auto;
 }
 
 .flex-row {
   flex-direction: row;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-between {
   justify-content: space-between;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.bg-yellow {
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 159 5 / var(--tw-bg-opacity));
 }
 
 .bg-offwhite {
@@ -501,8 +555,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
 
-.bg-gradient-to-tr {
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+.bg-gradient-to-tl {
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
 .from-dark-purple {
@@ -512,16 +566,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .to-purple {
   --tw-gradient-to: #6e34bf;
-}
-
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .px-2 {
@@ -534,17 +578,50 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.25rem;
 }
 
-.pb-3 {
+.py-3 {
+  padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .font-press-start {
   font-family: "Press Start 2P", cursive;
 }
 
+.font-open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -555,6 +632,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-transform: uppercase;
 }
 
+.text-pink {
+  --tw-text-opacity: 1;
+  color: rgb(217 65 191 / var(--tw-text-opacity));
+}
+
 .text-yellow {
   --tw-text-opacity: 1;
   color: rgb(242 159 5 / var(--tw-text-opacity));
@@ -563,4 +645,36 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-dark-purple {
   --tw-text-opacity: 1;
   color: rgb(29 28 64 / var(--tw-text-opacity));
+}
+
+a {
+  cursor: url(/assets/img/link.cur), pointer;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: row;
+  }
 }

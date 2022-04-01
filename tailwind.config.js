@@ -13,6 +13,10 @@ module.exports = {
         "press-start": ['"Press Start 2P"', "cursive"],
         "open-sans": ["'Open Sans'", "sans-serif"],
       },
+      cursor: {
+        normal: "url(/assets/img/normal.cur), auto",
+        pointer: "url(/assets/img/link.cur), pointer",
+      },
     },
   },
   plugins: [],
