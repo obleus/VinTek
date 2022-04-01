@@ -1,9 +1,20 @@
-// const { Category } = require('../models');
+const { Category } = require('../models');
 
-// const categorydata = {
+const categoryData = [
+  {
+    category_name: 'Monitors',
+  },
+  {
+    category_name: 'Floppy Disks',
+  },
+  {
+    category_name: 'Keyboards',
+  },
+  {
+    category_name: 'VCR',
+  }
+];
 
-// }
+const seedCategories = () => Category.bulkCreate(categoryData);
 
-// const seedPosts = () => Post.bulkCreate(postdata);
-
-// module.exports = seedPosts;
+module.exports = seedCategories;

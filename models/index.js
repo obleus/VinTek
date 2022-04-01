@@ -3,6 +3,7 @@ const User = require('./User');
 const Category = require('./Category');
 const Product = require('./Product');
 const Order = require('./Order');
+const ProductOrder = require('./ProductOrder')
 
 // Products belongsTo Category
 Product.belongsTo(Category, { foreignKey: 'category_id' })
@@ -16,4 +17,4 @@ Category.hasMany(Product, { foreignKey: 'category_id' })
 User.hasMany(Order, { foreignKey: 'user_id' })
 Order.belongsTo(Product, { foreignKey: 'user_id' })
 
-module.exports = { User, Category, Product, Order };
+module.exports = { User, Category, Product, Order, ProductOrder };
