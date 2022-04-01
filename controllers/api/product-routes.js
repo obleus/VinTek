@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
-  // be sure to include its associated Category and Tag data
+  // be sure to include its associated Category and Order data
 });
 
 // get one product
