@@ -1,6 +1,8 @@
+// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+// import our database connection from config.js
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 // create our User model
 class User extends Model {
@@ -18,10 +20,6 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
