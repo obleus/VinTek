@@ -26,10 +26,76 @@ const productData = [
     category_id: 1,
   },
   {
-    product_name: 'LG Monitor',
+    product_name: 'LG Disks',
     price: 20,
     stock: 5,
     category_id: 2,
+  },
+  {
+    product_name: 'LG Disks',
+    price: 20,
+    stock: 5,
+    category_id: 2,
+  },
+  {
+    product_name: 'LG Disks',
+    price: 20,
+    stock: 5,
+    category_id: 2,
+  },
+  {
+    product_name: 'LG Disks',
+    price: 20,
+    stock: 5,
+    category_id: 2,
+  },
+  {
+    product_name: 'LG Keyboad',
+    price: 20,
+    stock: 5,
+    category_id: 3,
+  },
+  {
+    product_name: 'LG Keyboad',
+    price: 20,
+    stock: 5,
+    category_id: 3,
+  },
+  {
+    product_name: 'LG Keyboad',
+    price: 20,
+    stock: 5,
+    category_id: 3,
+  },
+  {
+    product_name: 'LG Keyboad',
+    price: 20,
+    stock: 5,
+    category_id: 3,
+  },
+  {
+    product_name: 'LG VCR',
+    price: 20,
+    stock: 5,
+    category_id: 4,
+  },
+  {
+    product_name: 'LG VCR',
+    price: 20,
+    stock: 5,
+    category_id: 4,
+  },
+  {
+    product_name: 'LG VCR',
+    price: 20,
+    stock: 5,
+    category_id: 4,
+  },
+  {
+    product_name: 'LG VCR',
+    price: 20,
+    stock: 5,
+    category_id: 4,
   },
 ];
 
