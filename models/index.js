@@ -9,4 +9,8 @@ Product.belongsTo(Category, { foreignKey: 'category_id' })
 // Categories have many Products
 Category.hasMany(Product, { foreignKey: 'category_id' })
 
+// Orders can belong to one user
+
+// User can have many orders
+
 module.exports = { User, Category, Product };
