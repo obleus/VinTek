@@ -20,7 +20,7 @@ const productData = [
     category_id: 1,
   },
   {
-    product_name: 'Philips',
+    product_name: 'Philips Monitor',
     price: 5,
     stock: 5,
     category_id: 1,
@@ -32,19 +32,19 @@ const productData = [
     category_id: 2,
   },
   {
-    product_name: 'LG Disks',
+    product_name: 'Samsung Disks',
     price: 20,
     stock: 5,
     category_id: 2,
   },
   {
-    product_name: 'LG Disks',
+    product_name: 'Dell Disks',
     price: 20,
     stock: 5,
     category_id: 2,
   },
   {
-    product_name: 'LG Disks',
+    product_name: 'Philips Disks',
     price: 20,
     stock: 5,
     category_id: 2,
@@ -56,19 +56,19 @@ const productData = [
     category_id: 3,
   },
   {
-    product_name: 'LG Keyboad',
+    product_name: 'Samsung Keyboad',
     price: 20,
     stock: 5,
     category_id: 3,
   },
   {
-    product_name: 'LG Keyboad',
+    product_name: 'Dell Keyboad',
     price: 20,
     stock: 5,
     category_id: 3,
   },
   {
-    product_name: 'LG Keyboad',
+    product_name: 'Philips Keyboad',
     price: 20,
     stock: 5,
     category_id: 3,
@@ -80,7 +80,7 @@ const productData = [
     category_id: 4,
   },
   {
-    product_name: 'LG VCR',
+    product_name: 'Samsung VCR',
     price: 20,
     stock: 5,
     category_id: 4,
@@ -92,7 +92,7 @@ const productData = [
     category_id: 4,
   },
   {
-    product_name: 'LG VCR',
+    product_name: 'Philips VCR',
     price: 20,
     stock: 5,
     category_id: 4,
