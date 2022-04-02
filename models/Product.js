@@ -37,7 +37,8 @@ Product.init(
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'category',
+        allowNull: false,
+        model: 'categories',
         key: 'id'
       }
     }
@@ -47,7 +48,7 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'products',
   }
 );
 

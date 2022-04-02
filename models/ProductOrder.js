@@ -15,14 +15,14 @@ ProductOrder.init(
         product_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'product',
+                model: 'products',
                 key: 'id'
             }
         },
         order_id: {
             type: DataTypes.INTEGER,
             references: {
-                mode: 'order',
+                model: 'orders',
                 key: 'id'
             }
         },
@@ -32,7 +32,7 @@ ProductOrder.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_order'
+    modelName: 'product_orders'
     }
 );
 

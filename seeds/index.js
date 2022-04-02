@@ -1,19 +1,25 @@
-// const seedUsers = require('./user-seeds');
-// const seedProducts = require('./products-seeds');
+const seedUsers = require('./user-seeds');
+const seedProducts = require('./products-seeds');
+const seedCategories = require('./category-seeds');
 
-// const sequelize = require('../config/connection');
+const sequelize = require('../config/connection');
 
-// const seedAll = async () => {
-//   await sequelize.sync({ force: true });
-//   console.log('--------------');
-//   await seedUsers();
-//   console.log('--------------');
-//   await seedProducts();
-//   console.log('--------------');
+const seedAll = async () => {
+    // drop table if one exists, and force a new one.
+  await sequelize.sync({ force: true });
+  console.log('--------------');
 
+  await seedUsers();
+  console.log('--------------');
 
+  await seedCategories();
+  console.log('--------------');
 
-//   process.exit(0);
-// };
+  await seedProducts();
+  console.log('--------------');
 
-// seedAll();
+  // exit with success.
+  process.exit(0);
+};
+
+seedAll();

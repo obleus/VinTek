@@ -7,7 +7,6 @@ const { Product, Category, Order, User, ProductOrder } = require('../../models')
 router.get('/', (req, res) => {
   // find all products
   Product.findAll({
-    include: [{ model: Category }, { model: Order, through: User }]
   })
   .then(dbProductData => res.json(dbProductData))
     .catch(err => {
@@ -20,7 +19,6 @@ router.get('/', (req, res) => {
 // get one product
 router.get('/:id', (req, res) => {
   Product.findOne({
-    include: [{ model: Category }, { model: Order, through: User }],
     where: {
       id: req.params.id
     }

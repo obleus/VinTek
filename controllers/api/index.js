@@ -4,8 +4,9 @@ const userRoutes = require('./user-routes.js');
 const productRoutes = require('./product-routes');
 const categoryRoutes = require('./category-routes');
 
+// name endpoint for routes
 router.use('/users', userRoutes);
-router.use('/product', productRoutes);
-router.use('/category', categoryRoutes);
+router.use('/products', productRoutes);
+router.use('/categories', categoryRoutes);
 
 module.exports = router;

@@ -17,7 +17,7 @@ Order.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
       }  
     },
@@ -25,7 +25,7 @@ Order.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-          model: 'product',
+          model: 'products',
           key: 'id'
       }
     },
@@ -35,7 +35,7 @@ Order.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'order',
+    modelName: 'orders',
   }
 );
 
