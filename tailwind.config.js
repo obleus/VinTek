@@ -17,6 +17,9 @@ module.exports = {
         normal: "url(/assets/img/normal.cur), auto",
         pointer: "url(/assets/img/link.cur), pointer",
       },
+      boxShadow: {
+        pink: "5px 5px 16px rgba(217, 65, 192, 1)",
+      },
     },
   },
   plugins: [],

@@ -1,32 +1,38 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
+<form
+  class="login-form p-5 rounded bg-dark-purple w-11/12 md:w-7/12 mx-auto align-middle h-200"
+>
+  <div class="mb-4 w-max mx-auto">
+    <label for="email-login" class="font-press-start text-pink">Email Address</label><br
+    />
+    <input
+      class="rounded px-4 py-1 w-max"
+      type="text"
+      id="email-login"
+      placeholder="you@email.com"
+    />
   </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
+  <div class="mb-4 w-max mx-auto">
+    <label
+      for="password-login"
+      class="font-press-start text-pink"
+    >Password</label><br />
+    <input
+      class="rounded px-4 py-1 w-max"
+      type="password"
+      id="password-login"
+    />
   </div>
-  <div>
-    <button type="submit">login</button>
+  <div class="w-max mx-auto">
+    <button
+      type="submit"
+      class="bg-pink text-dark-purple shadow-yellow font-press-start py-2 px-3 rounded"
+    >Login</button>
   </div>
-</form>
-
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
+  <div class="text-center mt-3">
+    <a
+      href="/signup"
+      class="text-yellow hover:text-pink transition-all text-center"
+    >Don't have an account yet? Create one!</a>
   </div>
 </form>
 
