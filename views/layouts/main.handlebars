@@ -4,38 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VinTek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body class="bg-purple-900">
-    <div class="wrapper">
-      <header class="flex flex-row flex-nowrap justify-between py-3 px-10">
-        <h1 class="text-3xl font-bold underline">
-          <a href="/">VinTek</a>
+  <body
+    class="cursor-normal font-open-sans h-full w-full bg-gradient-to-tl from-dark-purple to-purple"
+  >
+    <div class="w-10/12 mx-auto">
+      <header
+        class="flex flex-col md:flex-row lg:flex-row xl:flex-row sm:flex-wrap md:flex-nowrap justify-between items-center py-3 px-10"
+      >
+        <h1 class="text-3xl font-press-start text-yellow basis-1/4">
+          <a href="/">VinTek</a><br />
+          <span class="font-open-sans text-sm">the raddest stuff on the 'net</span>
         </h1>
-        <div>
+        <div
+          class="flex flex-row flex-nowrap justify-evenly items-center basis-1/2"
+        >
           <input
+            class="px-2 py-1 rounded"
             type="search"
             name="product-search"
             id="product-search"
             placeholder="search..."
           />
+
+          <nav class="flex-row flex-nowrap justify-between">
+            {{#if loggedIn}}
+              <a href="/dashboard">My Account</a>
+              <button id="logout" class="btn-no-style">Logout</button>
+            {{else}}
+              <a class="font-press-start text-yellow" href="/login">Login</a>
+            {{/if}}
+          </nav>
         </div>
-        <nav class="flex-row flex-nowrap justify-between">
-          {{#if loggedIn}}
-            <a href="/dashboard">My Account</a>
-            <button id="logout" class="btn-no-style">Logout</button>
-          {{else}}
-            <a href="/login">Login</a>
-          {{/if}}
-        </nav>
       </header>
-      <main>
+      <main class="px-5">
         {{{body}}}
       </main>
-      <footer>
-        Thanks for visiting!
-      </footer>
     </div>
 
     {{#if loggedIn}}
