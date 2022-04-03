@@ -22,6 +22,10 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/product", (req, res) => {
+  res.render("product");
+});
+
 // const sequelize = require('../config/connection');
 // const { Post, User, Comment, Vote } = require('../models');
 
