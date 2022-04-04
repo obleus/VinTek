@@ -488,6 +488,40 @@ input:focus {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .order-1 {
   order: 1;
 }
@@ -566,16 +600,12 @@ input:focus {
   flex-grow: 1;
 }
 
-.basis-1\/3 {
-  flex-basis: 33.333333%;
-}
-
 .cursor-normal {
   cursor: url(/assets/img/normal.cur), auto;
 }
 
-.auto-cols-auto {
-  grid-auto-columns: auto;
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -604,6 +634,10 @@ input:focus {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .place-self-center {
@@ -643,8 +677,8 @@ input:focus {
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
 }
 
-.bg-gradient-to-tl {
-  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
 .from-dark-purple {
@@ -652,8 +686,12 @@ input:focus {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(29 28 64 / 0));
 }
 
-.to-purple {
-  --tw-gradient-to: #6e34bf;
+.via-purple {
+  --tw-gradient-stops: var(--tw-gradient-from), #6e34bf, var(--tw-gradient-to, rgb(110 52 191 / 0));
+}
+
+.to-dark-purple {
+  --tw-gradient-to: #1d1c40;
 }
 
 .p-5 {
@@ -802,6 +840,12 @@ input:focus {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 768px) {
   .md\:order-2 {
     order: 2;
@@ -809,10 +853,6 @@ input:focus {
 
   .md\:order-3 {
     order: 3;
-  }
-
-  .md\:mt-0 {
-    margin-top: 0px;
   }
 
   .md\:w-7\/12 {
@@ -825,5 +865,17 @@ input:focus {
 
   .md\:flex-nowrap {
     flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
