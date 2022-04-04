@@ -1,3 +1,5 @@
+// for the dashboard to display all orders
+
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, ProductOrder } = require('../models');
@@ -51,7 +53,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// Not going to be able to make edits to the order
+// Not going to be able to make edits to the order. We can if we want to `-_('.')_-` but all sales are final right?
 
 // router.get('/edit/:id', withAuth, (req, res) => {
 //   Post.findByPk(req.params.id, {
