@@ -423,6 +423,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+a {
+  cursor: url(/assets/img/link.cur), pointer;
+}
+
+input {
+  border-radius: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(217 65 191 / var(--tw-text-opacity));
+  caret-color: #d941bf;
+}
+
+input:focus {
+  outline-style: double;
+  outline-color: #d941bf;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -468,13 +488,33 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.order-1 {
+  order: 1;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-2 {
+  order: 2;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .flex {
@@ -485,6 +525,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
+.h-1\/3 {
+  height: 33.333333%;
+}
+
 .h-full {
   height: 100%;
 }
@@ -493,20 +541,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 16rem;
 }
 
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .w-full {
   width: 100%;
 }
 
-.w-10\/12 {
-  width: 83.333333%;
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
-.basis-1\/4 {
-  flex-basis: 25%;
-}
-
-.basis-1\/2 {
-  flex-basis: 50%;
+.grow {
+  flex-grow: 1;
 }
 
 .cursor-normal {
@@ -525,6 +577,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
 }
@@ -541,13 +597,36 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-evenly;
 }
 
+.place-self-center {
+  place-self: center;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-purple {
+  --tw-border-opacity: 1;
+  border-color: rgb(110 52 191 / var(--tw-border-opacity));
 }
 
 .bg-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(242 159 5 / var(--tw-bg-opacity));
+}
+
+.bg-dark-purple {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 28 64 / var(--tw-bg-opacity));
+}
+
+.bg-pink {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 65 191 / var(--tw-bg-opacity));
 }
 
 .bg-offwhite {
@@ -568,6 +647,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-gradient-to: #6e34bf;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -576,6 +659,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .py-3 {
@@ -588,22 +691,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2.5rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .pb-4 {
   padding-bottom: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-justify {
   text-align: justify;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .font-press-start {
@@ -612,6 +713,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-open-sans {
   font-family: 'Open Sans', sans-serif;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-3xl {
@@ -637,44 +748,81 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(217 65 191 / var(--tw-text-opacity));
 }
 
-.text-yellow {
-  --tw-text-opacity: 1;
-  color: rgb(242 159 5 / var(--tw-text-opacity));
-}
-
 .text-dark-purple {
   --tw-text-opacity: 1;
   color: rgb(29 28 64 / var(--tw-text-opacity));
 }
 
-a {
-  cursor: url(/assets/img/link.cur), pointer;
+.text-yellow {
+  --tw-text-opacity: 1;
+  color: rgb(242 159 5 / var(--tw-text-opacity));
 }
 
-@media (min-width: 640px) {
-  .sm\:flex-wrap {
-    flex-wrap: wrap;
-  }
+.shadow-yellow {
+  --tw-shadow-color: #f29f05;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hover\:border-pink:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(217 65 191 / var(--tw-border-opacity));
+}
+
+.hover\:text-pink:hover {
+  --tw-text-opacity: 1;
+  color: rgb(217 65 191 / var(--tw-text-opacity));
+}
+
+.hover\:shadow-pink:hover {
+  --tw-shadow: 5px 5px 16px rgba(217, 65, 192, 1);
+  --tw-shadow-colored: 5px 5px 16px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow-color: #d941bf;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 @media (min-width: 768px) {
+  .md\:order-2 {
+    order: 2;
+  }
+
+  .md\:order-3 {
+    order: 3;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:w-7\/12 {
+    width: 58.333333%;
+  }
+
+  .md\:basis-1\/4 {
+    flex-basis: 25%;
+  }
+
+  .md\:basis-1\/2 {
+    flex-basis: 50%;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
 
   .md\:flex-nowrap {
     flex-wrap: nowrap;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:flex-row {
-    flex-direction: row;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:flex-row {
-    flex-direction: row;
   }
 }

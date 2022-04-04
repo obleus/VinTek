@@ -16,31 +16,33 @@
   <body
     class="cursor-normal font-open-sans h-full w-full bg-gradient-to-tl from-dark-purple to-purple"
   >
-    <div class="w-10/12 mx-auto">
+    <div class="w-full">
       <header
-        class="flex flex-col md:flex-row lg:flex-row xl:flex-row sm:flex-wrap md:flex-nowrap justify-between items-center py-3 px-10"
+        class="flex flex-row flex-wrap md:flex-row md:flex-nowrap justify-between items-center py-3 px-10"
       >
-        <h1 class="text-3xl font-press-start text-yellow basis-1/4">
+        <h1 class="text-3xl font-press-start text-yellow md:basis-1/4 order-1">
           <a href="/">VinTek</a><br />
           <span class="font-open-sans text-sm">the raddest stuff on the 'net</span>
         </h1>
+        <input
+          class="grow order-3 mt-3 md:basis-1/2 md:order-2 md:mt-0"
+          type="search"
+          name="product-search"
+          id="product-search"
+          placeholder="search..."
+        />
         <div
-          class="flex flex-row flex-nowrap justify-evenly items-center basis-1/2"
+          class="flex flex-row flex-nowrap justify-evenly items-center md:basis-1/4 order-2 md:order-3"
         >
-          <input
-            class="px-2 py-1 rounded"
-            type="search"
-            name="product-search"
-            id="product-search"
-            placeholder="search..."
-          />
-
           <nav class="flex-row flex-nowrap justify-between">
             {{#if loggedIn}}
               <a href="/">My Account</a>
               <button id="logout" class="btn-no-style">Logout</button>
             {{else}}
-              <a class="font-press-start text-yellow" href="/login">Login</a>
+              <a
+                class="font-press-start text-yellow hover:text-pink transition-all"
+                href="/login"
+              >Login</a>
             {{/if}}
           </nav>
         </div>

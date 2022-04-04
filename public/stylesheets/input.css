@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-a {
-  @apply cursor-pointer;
+@layer base {
+  a {
+    @apply cursor-pointer;
+  }
+
+  input {
+    @apply px-2 py-1 rounded caret-pink text-pink focus:outline-pink focus:outline-double;
+  }
 }
