@@ -1,17 +1,13 @@
 <div
-  class="bg-offwhite text-dark-purple h-80 w-64 rounded border-2 border-purple hover:border-pink hover:shadow-pink transition-shadow overflow-hidden"
+  class="bg-offwhite text-dark-purple h-80 w-64 rounded border-2 border-purple hover:border-pink hover:shadow-pink transition-shadow overflow-hidden text-ellipsis"
 >
-  <img
-    src="/assets/img/{{id}}.jpg"
-    alt=""
-    class="h-5 object-fit overflow-hidden"
-  />
-  <div class="overflow-hidden">
+  <img src="/assets/img/{{id}}.jpg" alt="" class="h-32 w-64 object-cover" />
+  <div>
     <div class="flex flex-row flex-nowrap justify-between px-2 mb-2">
       <span class="font-bold uppercase">{{product_name}}</span>
       <span>${{price}}</span>
     </div>
-    <p class="px-3 text-justify truncate">
+    <p class="px-3 pb-2 leading-snug text-justify">
       First manufactured in 1986, the IBM Model M features a buckling-spring key
       design and swappable keycaps. They are lauded by typing enthusiasts the
       world over for their durability, consistency, and deeply satisfying
