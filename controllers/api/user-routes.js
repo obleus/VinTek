@@ -19,26 +19,6 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [
-      {
-        model: Post,
-        attributes: ["id", "title", "post_url", "created_at"],
-      },
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: Post,
-          attributes: ["title"],
-        },
-      },
-      {
-        model: Post,
-        attributes: ["title"],
-        through: Vote,
-        as: "voted_posts",
-      },
-    ],
   })
     .then((dbEmailData) => {
       if (!dbEmailData) {
@@ -54,7 +34,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     email: req.body.email,
     password: req.body.password,
@@ -73,7 +52,6 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
       email: req.body.email,
@@ -92,9 +70,10 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.email = dbEmailData.id;
+      req.session.user_id = dbUserData.id;
+      req.session.email = dbUserData.email;
       req.session.loggedIn = true;
-      res.json({ user: dbEmailData, message: "You are now logged in!" });
+      res.json({ user: dbUserData, message: "You are now logged in!" });
     });
   });
 });
@@ -110,9 +89,6 @@ router.post("/logout", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {
