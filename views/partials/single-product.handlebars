@@ -1,17 +1,21 @@
 <div
-  class="bg-offwhite text-dark-purple w-64 rounded border-2 border-purple hover:border-pink hover:shadow-pink transition-shadow"
+  class="bg-offwhite text-dark-purple h-80 w-64 rounded border-2 border-purple hover:border-pink hover:shadow-pink transition-shadow overflow-hidden"
 >
-  <img src="/assets/img/IBM_Model_M_1391403_keyboard.jpg" alt="" />
-  <div>
+  <img
+    src="/assets/img/{{id}}.jpg"
+    alt=""
+    class="h-5 object-fit overflow-hidden"
+  />
+  <div class="overflow-hidden">
     <div class="flex flex-row flex-nowrap justify-between px-2 mb-2">
-      <span class="font-bold uppercase">IBM Model M 1391403</span>
-      <span>$90</span>
+      <span class="font-bold uppercase">{{product_name}}</span>
+      <span>${{price}}</span>
     </div>
-    <div class="px-3 pb-4 text-justify">
+    <p class="px-3 text-justify truncate">
       First manufactured in 1986, the IBM Model M features a buckling-spring key
       design and swappable keycaps. They are lauded by typing enthusiasts the
       world over for their durability, consistency, and deeply satisfying
       audible and tacticle feedback.
-    </div>
+    </p>
   </div>
 </div>
