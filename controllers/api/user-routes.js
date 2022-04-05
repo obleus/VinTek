@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+// The `/api/users` endpoint
+
 // get all users
 router.get("/", (req, res) => {
   User.findAll({
@@ -13,6 +15,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// get user by id
 router.get("/:id", (req, res) => {
   User.findOne({
     attributes: { exclude: ["password"] },
@@ -33,6 +36,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// create a user
 router.post("/", (req, res) => {
   User.create({
     email: req.body.email,
@@ -51,6 +55,7 @@ router.post("/", (req, res) => {
     });
 });
 
+// create a login for user
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
@@ -78,6 +83,7 @@ router.post("/login", (req, res) => {
   });
 });
 
+// create a logout for user
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -88,6 +94,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// create an update or a change to a user
 router.put("/:id", (req, res) => {
   User.update(req.body, {
     individualHooks: true,
@@ -108,6 +115,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// create a delete user
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {

@@ -10,34 +10,29 @@ const withAuth = require('../utils/auth');
 // Create a session, then refrence the session after ProductOrder.
 
 // find user by id
+// get all checkout products for the dashboard
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
-  Post.findAll({
+  ProductOrder.findAll({
     where: {
       user_id: req.session.user_id
     },
     attributes: [
       'id',
       'product_id',
-      'order_id',
+      'productorder_id',
       'created_at',
-      // might have done sequelize backwards
-      [sequelize.literal('(SELECT COUNT(*) FROM productorder WHERE user.id = product.product_id)')]
     ],
     include: [
       {
         model: ProductOrder,
-        attributes: ['id', 'product_id', 'order_id', 'user_id', 'created_at'],
+        attributes: ['id', 'product_id', 'productorder_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['email']
         }
       },
-      {
-        model: ProductOrder,
-        attributes: ['product_id']
-      }
     ]
   })
     // map the products
@@ -53,6 +48,5 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// create product order
 
 module.exports = router;

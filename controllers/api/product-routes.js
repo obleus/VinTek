@@ -5,7 +5,6 @@ const { Product, Category, Order, User, ProductOrder } = require('../../models')
 
 // get all products
 router.get('/', (req, res) => {
-  // find all products
   Product.findAll({
   })
   .then(dbProductData => res.json(dbProductData))
@@ -13,7 +12,6 @@ router.get('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
   });
-  // be sure to include its associated Category and Order data
 });
 
 // get one product
@@ -52,21 +50,7 @@ router.post('/', (req, res) => {
     stock: req.body.stock,
     category_id: req.body.category_id
   })
-  .then((product) => {
-    // if there's product orders, we need to create pairings to bulk create in the ProductTag model
-    if (req.body.orderIds) {
-      const productOrderIdArr = req.body.orderIds.map((order_id) => {
-        return {
-          product_id: product.id,
-          order_id,
-        };
-      });
-      return ProductOrder.bulkCreate(productOrderIdArr);
-    }
-    // if no product tags, just respond
-    res.status(200).json(product);
-  })
-  .then((productOrderIds) => res.status(200).json(productOrderIds))
+  .then((dbProductData) => res.status(200).json(dbProductData))
   .catch((err) => {
     console.log(err);
     res.status(400).json(err);
