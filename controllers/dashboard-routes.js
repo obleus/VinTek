@@ -23,7 +23,7 @@ router.get('/', withAuth, (req, res) => {
       'order_id',
       'created_at',
       // might have done sequelize backwards
-      [sequelize.literal('(SELECT COUNT(*) FROM productorder WHERE user.id = product.post_id)')]
+      [sequelize.literal('(SELECT COUNT(*) FROM productorder WHERE user.id = product.product_id)')]
     ],
     include: [
       {
@@ -52,6 +52,8 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// create product order
 
 // Not going to be able to make edits to the order. We can if we want to `-_('.')_-` but all sales are final right?
 
