@@ -1,4 +1,4 @@
-const { ProductOrder } = require('../models');
+const { ProductOrder, Product } = require('../models');
 
 const productOrderData = [
   {
@@ -7,6 +7,6 @@ const productOrderData = [
   },
 ]
 
-const seedProductOrder = () => ProductOrder(productOrderData);
+const seedProductOrder = () => new ProductOrder(productOrderData);
 
 module.exports = seedProductOrder;
