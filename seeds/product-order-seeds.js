@@ -1,12 +1,12 @@
-const { ProductOrder } = require('../models');
+const { ProductOrder } = require("../models");
 
 const productOrderData = [
   {
-    id: 'LG Monitor',
-    price: 20
+    id: "LG Monitor",
+    price: 20,
   },
-]
+];
 
-const seedProductOrder = () => ProductOrder(productOrderData);
+const seedProductOrder = () => new ProductOrder(productOrderData);
 
 module.exports = seedProductOrder;
