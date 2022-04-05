@@ -18,14 +18,7 @@ ProductOrder.init(
                 model: 'products',
                 key: 'id'
             }
-        },
-        order_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'orders',
-                key: 'id'
-            }
-        },
+        }
     },
     {
     sequelize,
