@@ -4,17 +4,6 @@ const withAuth = require('../../utils/auth');
 
 // The `/api/productorders` endpoint
 
-// find all product orders
-router.get("/", withAuth, (req, res) => {
-  ProductOrder.findAll({
-  })
-  .then(dbProductOrderData => res.json(dbProductOrderData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-  });
-})
-
 // find product orders by id
 router.get("/:id", (req, res) => {
   ProductOrder.findOne({
