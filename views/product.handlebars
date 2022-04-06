@@ -3,13 +3,12 @@
   <div class="text-pink px-2 py-1 w-64">
     <h2 class="font-press-start bg-yellow px-2 py-1">Shop By Category</h2>
     <ul>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
-      <li>Keyboards</li>
+      {{#each categories}}
+        <li class="mt-2"><a
+            href="/category/{{this}}"
+            class="hover:text-yellow transition-color"
+          >{{this}}</a></li>
+      {{/each}}
     </ul>
   </div>
 
@@ -20,10 +19,7 @@
       <div class="text-lg">$90</div>
 
       <p class="px-3 pb-4 text-justify">
-        First manufactured in 1986, the IBM Model M features a buckling-spring
-        key design and swappable keycaps. They are lauded by typing enthusiasts
-        the world over for their durability, consistency, and deeply satisfying
-        audible and tacticle feedback.
+        {{product_desc}}
       </p>
 
       <button
