@@ -3,7 +3,7 @@
     <h2 class="font-press-start bg-yellow px-2 py-1">Shop By Category</h2>
     <ul>
       {{#each categories}}
-        <li>{{this}}</li>
+        <li class="mt-2"><a href="/category/{{this}}" class="hover:text-yellow transition-color">{{this}}</a></li>
       {{/each}}
     </ul>
   </div>

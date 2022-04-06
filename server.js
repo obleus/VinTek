@@ -22,10 +22,10 @@ app.post('/create-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: '/sucess',
+    success_url: '/success',
     cancel_url: '/cancel',
   });
-
+//create success and cancel handlebar
   res.redirect(303, session.url);
 });
 

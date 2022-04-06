@@ -1,10 +1,16 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { ProductOrder } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+// const stripe,
+// stripe api key
+// route for checkout session
+
+// Create a session, then refrence the session after ProductOrder.
 router.get('/', (req, res) => {
-  Comment.findAll()
-    .then(dbCommentData => res.json(dbCommentData))
+  ProductOrder.findAll()
+    .then(dbProductOrderData => res.json(dbProductOrderData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -12,13 +18,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
-  Comment.create({
-    comment_text: req.body.comment_text,
+  // expects => {ProductOrder_text: "This is the ProductOrder", user_id: 1, post_id: 2}
+  ProductOrder.create({
+    ProductOrder_text: req.body.ProductOrder_text,
     user_id: req.session.user_id,
     post_id: req.body.post_id
   })
-    .then(dbCommentData => res.json(dbCommentData))
+    .then(dbProductOrderData => res.json(dbProductOrderData))
     .catch(err => {
       console.log(err);
       res.status(400).json(err);
@@ -26,17 +32,17 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  Comment.destroy({
+  ProductOrder.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbCommentData => {
-      if (!dbCommentData) {
-        res.status(404).json({ message: 'No comment found with this id!' });
+    .then(dbProductOrderData => {
+      if (!dbProductOrderData) {
+        res.status(404).json({ message: 'No ProductOrder found with this id!' });
         return;
       }
-      res.json(dbCommentData);
+      res.json(dbProductOrderData);
     })
     .catch(err => {
       console.log(err);

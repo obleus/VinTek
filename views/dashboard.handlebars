@@ -1,12 +1,1 @@
 <h2>Your Orders</h2>
-{{#if orders.length}}
-<section>
-    {{#each orders as |order|}}
-      {{> order-info order}}
-    {{/each}}
-</section>
-{{else}}
-<div class="text-pink">
-  Bummer, you don't have any past orders. Want to buy something?
-</div>
-{{/if}}

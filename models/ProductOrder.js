@@ -1,39 +1,39 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 class ProductOrder extends Model {}
 
 ProductOrder.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        product_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'products',
-                key: 'id'
-            }
-        },
-        order_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'orders',
-                key: 'id'
-            }
-        },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "products",
+        key: "id",
+      },
+    },
+  },
+  {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_orders'
-    }
+    modelName: "product_orders",
+  }
 );
 
 module.exports = ProductOrder;

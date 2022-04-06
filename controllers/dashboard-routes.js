@@ -1,86 +1,42 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { User } = require('../models');
-const withAuth = require('../utils/auth');
+// for the dashboard to display all orders
+const router = require("express").Router();
+const { User, ProductOrder } = require("../models");
+const withAuth = require("../utils/auth");
 
-// get all posts for dashboard
-router.get('/', withAuth, (req, res) => {
+// contains product-order-routes
+// dashboard route so users can display their orders
+// Create a session, then refrence the session after ProductOrder.
+
+// find user by id
+// get all checkout products for the dashboard
+router.get("/", withAuth, (req, res) => {
+  ProductOrder.findAll() {
   console.log(req.session);
-  console.log('======================');
-  Post.findAll({
+  console.log("======================");
+  ProductOrder.findAll({
     where: {
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
     },
-    attributes: [
-      'id',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
+    attributes: ["id", "product_id", "user_id", "created_at"],
     include: [
       {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
         model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
-    attributes: [
-      'id',
-      'post_url',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        attributes: ["id"],
+      },
     ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
   })
-    .then(dbPostData => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
-        
-        res.render('edit-post', {
-          post,
-          loggedIn: true
-        });
-      } else {
-        res.status(404).end();
-      }
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
+    // return product array to display on dashboard
+    // map the products
+    // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+    .then((dbProductData) => {
+      // callbackFn Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
+      // const product = dbProductData.map()
+      // res.json(dbProductData);
+      res.render("dashboard", { product, loggedIn: true });
+}).catch(err => {
+  console.log(err);
+  res.status(500).json(err)
 });
+)}
 
 module.exports = router;
