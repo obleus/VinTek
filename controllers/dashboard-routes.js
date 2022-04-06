@@ -40,10 +40,9 @@ router.get("/", withAuth, (req, res) => {
     // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
     .then((dbProductData) => {
       // callbackFn Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
-      const product = dbProductData.map((product) =>
-        product.get({ plain: true })
-      );
-      res.render("dashboard", { product, loggedIn: true });
+      // const product = dbProductData.map()
+      res.json(dbProductData)
+      // res.render("dashboard", { product, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
