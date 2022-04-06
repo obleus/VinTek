@@ -10,7 +10,6 @@ const withAuth = require("../utils/auth");
 // find user by id
 // get all checkout products for the dashboard
 router.get("/", withAuth, (req, res) => {
-  ProductOrder.findAll() {
   console.log(req.session);
   console.log("======================");
   ProductOrder.findAll({
@@ -33,10 +32,11 @@ router.get("/", withAuth, (req, res) => {
       // const product = dbProductData.map()
       // res.json(dbProductData);
       res.render("dashboard", { product, loggedIn: true });
-}).catch(err => {
-  console.log(err);
-  res.status(500).json(err)
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
-)}
 
 module.exports = router;
