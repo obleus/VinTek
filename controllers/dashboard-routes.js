@@ -1,6 +1,5 @@
 // for the dashboard to display all orders
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { User, ProductOrder } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -21,16 +20,10 @@ router.get("/", withAuth, (req, res) => {
     include: [
       {
         model: ProductOrder,
-        attributes: [
-          "id",
-          "product_id",
-          "productorder_id",
-          "user_id",
-          "created_at",
-        ],
+        attributes: ["id", "product_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["email"],
+          attributes: ["id"],
         },
       },
     ],
