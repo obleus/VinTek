@@ -16,8 +16,8 @@ Product.belongsTo(Category, { foreignKey: "category_id" });
 // Categories have many Products
 Category.hasMany(Product);
 
-Product.belongsTo(ProductOrder);
+Product.belongsTo(ProductOrder, { constraints: false });
 
-ProductOrder.hasMany(Product);
+ProductOrder.hasMany(Product, { constraints: false });
 
 module.exports = { User, Category, Product, ProductOrder };

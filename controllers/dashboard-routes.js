@@ -10,37 +10,33 @@ const withAuth = require("../utils/auth");
 // find user by id
 // get all checkout products for the dashboard
 router.get("/", withAuth, (req, res) => {
+  ProductOrder.findAll() {
   console.log(req.session);
   console.log("======================");
   ProductOrder.findAll({
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ["id", "product_id", "productorder_id", "created_at"],
+    attributes: ["id", "product_id", "user_id", "created_at"],
     include: [
       {
-        model: ProductOrder,
-        attributes: ["id", "product_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["id"],
-        },
+        model: User,
+        attributes: ["id"],
       },
     ],
   })
-  // return product array to display on dashboard
+    // return product array to display on dashboard
     // map the products
     // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
     .then((dbProductData) => {
       // callbackFn Function that is called for every element of arr. Each time callbackFn executes, the returned value is added to newArray.
       // const product = dbProductData.map()
-      res.json(dbProductData)
-      // res.render("dashboard", { product, loggedIn: true });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      // res.json(dbProductData);
+      res.render("dashboard", { product, loggedIn: true });
+}).catch(err => {
+  console.log(err);
+  res.status(500).json(err)
 });
+)}
 
 module.exports = router;
