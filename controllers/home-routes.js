@@ -13,7 +13,20 @@ router.get("/", (req, res) => {
       const products = dbProductData.map((product) =>
         product.get({ plain: true })
       );
-      res.render("homepage", { products, loggedIn: req.session.loggedIn });
+      const allCategories = products.map(
+        (product) => product.category.category_name
+      );
+
+      let categories = allCategories.filter((cat, index) => {
+        return allCategories.indexOf(cat) === index;
+      });
+
+      console.log(categories);
+      res.render("homepage", {
+        products,
+        categories,
+        loggedIn: req.session.loggedIn,
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -39,7 +52,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/product", (req, res) => {
+router.get("/product/:id", (req, res) => {
   res.render("product");
 });
 
