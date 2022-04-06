@@ -2,8 +2,9 @@ const { ProductOrder } = require("../models");
 
 const productOrderData = [
   {
-    id: "LG Monitor",
-    price: 20,
+    id: 1,
+    user_id: 1,
+    product_id: [1, 3, 4],
   },
 ];
 

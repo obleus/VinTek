@@ -13,10 +13,10 @@ const seedAll = async () => {
   await seedUsers();
   console.log("--------------");
 
-  await seedProducts();
+  await seedCategories();
   console.log("--------------");
 
-  await seedCategories();
+  await seedProducts();
   console.log("--------------");
 
   await seedProductOrder();
