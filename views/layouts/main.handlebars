@@ -44,7 +44,30 @@
         </div>
       </header>
       <main class="px-5">
-        {{{body}}}
+        <div class="flex flex-col md:flex-row">
+          <div class="text-pink px-2 py-1 w-64">
+            <h2 class="font-press-start bg-yellow px-2 py-1">Shop By Category</h2>
+            <ul>
+              <li class="mt-2"><a
+                  href="/category/Monitors"
+                  class="hover:text-yellow transition-color"
+                >Monitors</a></li>
+              <li class="mt-2"><a
+                  href="/category/Floppy-Disk"
+                  class="hover:text-yellow transition-color"
+                >Floppy Disks</a></li>
+              <li class="mt-2"><a
+                  href="/category/Keyboards"
+                  class="hover:text-yellow transition-color"
+                >Keyboards</a></li>
+              <li class="mt-2"><a
+                  href="/category/VCR"
+                  class="hover:text-yellow transition-color"
+                >VCR</a></li>
+            </ul>
+          </div>
+          {{{body}}}
+        </div>
       </main>
     </div>
 

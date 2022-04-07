@@ -1,18 +1,7 @@
-<div class="flex flex-col md:flex-row">
-  <div class="text-pink px-2 py-1 w-64">
-    <h2 class="font-press-start bg-yellow px-2 py-1">Shop By Category</h2>
-    <ul>
-      {{#each categories}}
-        <li class="mt-2"><a href="/category/{{this}}" class="hover:text-yellow transition-color">{{this}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
-  
 <div class="container mx-auto max-w-fit">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {{#each products as |product|}}
-      <a href="/product/{{id}}">{{> single-product}}</a>
+      <a href="/products/{{id}}">{{> single-product}}</a>
       {{/each}}
     </div>
-</div>
 </div>

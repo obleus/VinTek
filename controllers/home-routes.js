@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
       const products = dbProductData.map((product) =>
         product.get({ plain: true })
       );
+
       const allCategories = products.map(
         (product) => product.category.category_name
       );
@@ -52,8 +53,16 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/product/:id", (req, res) => {
-  res.render("product");
+router.get("/products/:id", (req, res) => {
+  Product.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["id", "price", "product_desc", "product_name"],
+  }).then((dbProductData) => {
+    const product = dbProductData.get({ plain: true });
+    res.render("product", { product });
+  });
 });
 
 module.exports = router;
