@@ -1,41 +1,43 @@
-// router require for express
-const router = require('express').Router();
-// insert stripe key
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-// include models and set = require from the models folder
-const { Product, ProductOrder } = require('../../models');
+const router = require("express").Router();
+const {
+  Product,
+  Category,
+  Order,
+  User,
+  ProductOrder,
+} = require("../../models");
 
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
-  Product.findAll({
-  })
-  .then(dbProductData => res.json(dbProductData))
-    .catch(err => {
+router.get("/", (req, res) => {
+  Product.findAll({})
+    .then((dbProductData) => res.json(dbProductData))
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-  });
+    });
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   Product.findOne({
     where: {
-      id: req.params.id
-    }
+      id: req.params.id,
+    },
   })
-  .then(dbProductData => {
-    if (!dbProductData) {
-      res.status(404).json({ message: 'No product found with this id' });
-      return;
-    }
-    res.json(dbProductData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .then((dbProductData) => {
+      if (!dbProductData) {
+        res.status(404).json({ message: "No product found with this id" });
+        return;
+      }
+      console.log(dbProductData);
+      res.json(dbProductData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 const product = await stripe.products.create({
@@ -43,7 +45,7 @@ const product = await stripe.products.create({
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -56,18 +58,18 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    category_id: req.body.category_id
+    product_desc: req.body.product_desc,
+    category_id: req.body.category_id,
   })
-  .then((dbProductData) => res.status(200).json(dbProductData))
-  //.then create stripe data and .then create response.
-  .catch((err) => {
-    console.log(err);
-    res.status(400).json(err);
-  });
+    .then((dbProductData) => res.status(200).json(dbProductData))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 // update product
-router.put('/:id', (req, res) => {
+router.put("/:id", (req, res) => {
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -75,7 +77,9 @@ router.put('/:id', (req, res) => {
   })
     .then((product) => {
       // find all associated order from ProductOrder
-      return ProductOrder.findAll({ where: { product_id: req.params.id, order_id: req.params.id } });
+      return ProductOrder.findAll({
+        where: { product_id: req.params.id, order_id: req.params.id },
+      });
     })
     .then((productOrder) => {
       // get list of current order_ids
@@ -107,24 +111,24 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-    id: req.params.id
-    }
-})
-.then(dbProductData => {
-    if (!dbProductData) {
-        res.status(404).json({ message: 'No product found with this id' });
+      id: req.params.id,
+    },
+  })
+    .then((dbProductData) => {
+      if (!dbProductData) {
+        res.status(404).json({ message: "No product found with this id" });
         return;
-    }
-    res.json(dbProductData);
-})
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-});
+      }
+      res.json(dbProductData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
