@@ -59,6 +59,7 @@ router.post('/', (req, res) => {
     category_id: req.body.category_id
   })
   .then((dbProductData) => res.status(200).json(dbProductData))
+  //.then create stripe data and .then create response.
   .catch((err) => {
     console.log(err);
     res.status(400).json(err);
