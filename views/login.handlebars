@@ -1,0 +1,35 @@
+<form
+  class="login-form p-5 rounded bg-dark-purple w-max md:w-7/12 lg:5/12 mx-auto align-middle h-80 flex flex-col justify-between"
+>
+  <div class="flex flex-col">
+    <label for="email-login" class="font-press-start text-pink">Email Address</label><br
+    />
+    <input
+      class="rounded px-4 py-1"
+      type="text"
+      id="email-login"
+      placeholder="you@email.com"
+    />
+  </div>
+  <div class="flex flex-col">
+    <label
+      for="password-login"
+      class="font-press-start text-pink"
+    >Password</label><br />
+    <input class="rounded px-4 py-1" type="password" id="password-login" />
+  </div>
+  <div class="flex flex-col">
+    <button
+      type="submit"
+      class="bg-pink text-dark-purple shadow-yellow font-press-start py-2 px-3 rounded max-w-fit place-self-center"
+    >Login</button>
+  </div>
+  <div class="text-center">
+    <a
+      href="/signup"
+      class="text-yellow hover:text-pink transition-all text-center"
+    >Don't have an account yet? Create one!</a>
+  </div>
+</form>
+
+<script src="/javascript/login.js"></script>

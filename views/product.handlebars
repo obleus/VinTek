@@ -1,0 +1,22 @@
+<div
+  class="container mx-auto max-w-8/12 flex flex-col md:flex-row justify-between px-5"
+>
+  <div class="min-w-2/3 basis-3/4">
+    <img src="/assets/img/{{product.id}}.jpg" alt="" />
+  </div>
+  <div
+    class="basis-1/4 w-1/4 flex flex-col justify-evenly px-5 mb-2 text-yellow"
+  >
+    <div class="font-bold uppercase text-xl">{{product.product_name}}</div>
+    <div class="text-lg font-bold">${{product.price}}</div>
+
+    <p class="pr-3 pb-4 text-justify">
+      {{product.product_desc}}
+    </p>
+
+    <button
+      class="bg-pink text-dark-purple shadow-yellow font-press-start py-2 px-3 rounded max-w-fit"
+    >Add to Cart</button>
+
+  </div>
+</div>

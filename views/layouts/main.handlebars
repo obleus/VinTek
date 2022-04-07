@@ -1,0 +1,79 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VinTek</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body
+    class="cursor-normal font-open-sans h-full bg-gradient-to-r from-dark-purple via-purple to-dark-purple"
+  >
+    <div class="w-full">
+      <header
+        class="flex flex-row flex-wrap md:flex-row md:flex-nowrap justify-between items-center py-3 px-10"
+      >
+        <h1 class="text-3xl font-press-start text-yellow order-1">
+          <a href="/">VinTek</a><br />
+          <span class="font-open-sans text-sm">the raddest stuff on the 'net</span>
+        </h1>
+        <div class="order-2 md:order-3 items-end">
+          <nav class="flex flex-col md:flex-row justify-between">
+            {{#if loggedIn}}
+              <a
+                href="/dashboard"
+                class="font-press-start text-yellow hover:text-pink transition-all"
+              >My Account</a>
+              <a
+                id="logout"
+                class="font-press-start text-yellow hover:text-pink transition-all"
+              >Logout</a>
+            {{else}}
+              <a
+                class="font-press-start text-yellow hover:text-pink transition-all"
+                href="/login"
+              >Login</a>
+            {{/if}}
+          </nav>
+        </div>
+      </header>
+      <main class="px-5">
+        <div class="flex flex-col md:flex-row">
+          <div class="text-pink px-2 py-1 w-64">
+            <h2 class="font-press-start bg-yellow px-2 py-1">Shop By Category</h2>
+            <ul>
+              <li class="mt-2"><a
+                  href="/category/Monitors"
+                  class="hover:text-yellow transition-color"
+                >Monitors</a></li>
+              <li class="mt-2"><a
+                  href="/category/Floppy-Disk"
+                  class="hover:text-yellow transition-color"
+                >Floppy Disks</a></li>
+              <li class="mt-2"><a
+                  href="/category/Keyboards"
+                  class="hover:text-yellow transition-color"
+                >Keyboards</a></li>
+              <li class="mt-2"><a
+                  href="/category/VCR"
+                  class="hover:text-yellow transition-color"
+                >VCR</a></li>
+            </ul>
+          </div>
+          {{{body}}}
+        </div>
+      </main>
+    </div>
+
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+
+</html>
