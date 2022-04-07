@@ -23,7 +23,8 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.1.0",
     "sequelize": "^6.18.0",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "stripe": "^8.215.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",
