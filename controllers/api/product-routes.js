@@ -1,5 +1,9 @@
+// router require for express
 const router = require('express').Router();
-const { Product, Category, Order, User, ProductOrder } = require('../../models');
+// insert stripe key
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+// include models and set = require from the models folder
+const { Product, ProductOrder } = require('../../models');
 
 // The `/api/products` endpoint
 
@@ -34,6 +38,10 @@ router.get('/:id', (req, res) => {
   });
 });
 
+const product = await stripe.products.create({
+  name: 'Gold Special',
+});
+
 // create new product
 router.post('/', (req, res) => {
   /* req.body should look like this...
@@ -51,6 +59,7 @@ router.post('/', (req, res) => {
     category_id: req.body.category_id
   })
   .then((dbProductData) => res.status(200).json(dbProductData))
+  //.then create stripe data and .then create response.
   .catch((err) => {
     console.log(err);
     res.status(400).json(err);

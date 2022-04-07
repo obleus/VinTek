@@ -19,13 +19,13 @@ ProductOrder.init(
         key: "id",
       },
     },
-    // product_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "products",
-    //     key: "id",
-    //   },
-    // },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "products",
+        key: "id",
+      },
+    },
   },
   {
     sequelize,

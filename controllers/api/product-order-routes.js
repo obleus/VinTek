@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const { ProductOrder, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { ProductOrder, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
 // The `/api/productorders` endpoint
 
@@ -10,10 +10,18 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
+    include: [
+      {
+        model: User,
+        attributes: ["id"],
+      },
+    ],
   })
     .then((dbProductOrderData) => {
       if (!dbProductOrderData) {
-        res.status(404).json({ message: "No product order found with this id" });
+        res
+          .status(404)
+          .json({ message: "No product order found with this id" });
         return;
       }
       res.json(dbProductOrderData);
@@ -26,21 +34,21 @@ router.get("/:id", (req, res) => {
 
 // create product orders
 router.post("/", withAuth, (req, res) => {
-    ProductOrder.create({
-      product_id: req.body.product_id,
-      order_id: req.body.order_id,
+  ProductOrder.create({
+    product_id: req.body.product_id,
+    order_id: req.body.order_id,
+  })
+    .then((dbProductOrderData) => {
+      req.session.save(() => {
+        req.session.product_id = dbProductOrderData.product_id;
+        req.session.order_id = dbProductOrderData.order_id;
+        req.session.loggedIn = true;
+        res.json(dbProductOrderData);
+      });
     })
-      .then((dbProductOrderData) => {
-        req.session.save(() => {
-          req.session.product_id = dbProductOrderData.product_id;
-          req.session.order_id = dbProductOrderData.order_id;
-          req.session.loggedIn = true;
-          res.json(dbProductOrderData);
-        });
-    })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
@@ -53,7 +61,9 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbProductOrderData) => {
       if (!dbProductOrderData) {
-        res.status(404).json({ message: "No product order found with this id" });
+        res
+          .status(404)
+          .json({ message: "No product order found with this id" });
         return;
       }
       res.json(dbProductOrderData);
@@ -63,6 +73,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-  
 
 module.exports = router;
