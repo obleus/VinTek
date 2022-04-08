@@ -61,7 +61,7 @@ router.get("/products/:id", (req, res) => {
     attributes: ["id", "price", "product_desc", "product_name"],
   }).then((dbProductData) => {
     const product = dbProductData.get({ plain: true });
-    res.render("product", { product });
+    res.render("product", { product, loggedIn: req.session.loggedIn });
   });
 });
 
