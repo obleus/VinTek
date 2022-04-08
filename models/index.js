@@ -3,6 +3,7 @@ const User = require("./User");
 const Category = require("./Category");
 const Product = require("./Product");
 const ProductOrder = require("./ProductOrder");
+const Charge = require("./Charge");
 
 // User can have many orders
 User.hasMany(ProductOrder, { foreignKey: "user_id" });
@@ -23,4 +24,4 @@ Product.belongsTo(ProductOrder, { constraints: false });
 ProductOrder.hasMany(Product, { constraints: false });
 
 // Export Models
-module.exports = { User, Category, Product, ProductOrder };
+module.exports = { User, Category, Product, ProductOrder, Charge };
