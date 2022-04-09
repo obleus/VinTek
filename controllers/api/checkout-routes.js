@@ -29,7 +29,7 @@ router.post('/cart', withAuth, (req, res) => {
     res.send('success');
 });
 
-// router.post('/create-checkout-session', async (req, res) => {
+router.post('/create-checkout-session', async (req, res) => {
 //   /*process req.session.cart
 //   get all unique values. how many times product 3,4 show up.
 //   query products for those unique keys and subtract by the amount the times those values show up.
@@ -75,26 +75,27 @@ router.post('/cart', withAuth, (req, res) => {
 //       },
 //     ]
 //   */
-//     const session = await stripe.checkout.sessions.create({
-//     line_items:
-//     [
-//       {
-//         price_data: {
-//           currency: 'usd',
-//           // extract values stored from the database
-//           product_data: {
-//             name: 'Dell Monitor',
-//           },
-//           unit_amount: 1200,
-//         },
-//         quantity: 1,
-//       },
-//     ],
-//     mode: 'payment',
-//     success_url: "https://example.com/success",
-//     cancel_url: "https://example.com/cancel",
-//   })
-// });
+  const session = await stripe.checkout.sessions.create({
+    line_items:
+      [
+      {
+        price_data: {
+          currency: 'usd',
+          // extract values stored from the database
+          product_data: {
+            name: 'Dell Monitor',
+          },
+          unit_amount: 1200,
+        },
+        quantity: 1,
+      },
+      ],
+      mode: 'payment',
+      success_url: "https://example.com/success",
+      cancel_url: "https://example.com/cancel",
+    })
+  res.redirect(303, session.url);
+});
 
 
 
@@ -128,24 +129,5 @@ router.delete('/:id', withAuth, (req, res) => {
     });
 });
 
-router.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'T-shirt',
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: 'https://example.com/success',
-    cancel_url: 'https://example.com/cancel',
-  })
-});
 
 module.exports = router;
