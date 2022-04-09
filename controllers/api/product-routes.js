@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const { Product, ProductOrder } = require("../../models");
-// const stripe = require('stripe')('sk_test_51KjYhLGhlI22DMOEiLUz6LJQpHYIxySIUC8R71Ho3y1LfgT7QvUNeJoagvjiuaM4jza9pxxluO7osQyIhpANMnfr00qxF4eVXx');
-
+const { Product, ProductOrder } = require("../../models")
 // The `/api/products` endpoint
 
 // get all products
@@ -34,10 +32,6 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// const product = await stripe.products.create({
-//   name: 'Gold Special',
-// });
 
 // create new product
 router.post("/", (req, res) => {

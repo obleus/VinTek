@@ -7,12 +7,14 @@
   </div>
 
   <div>
-    <button type="submit">Continue checkout</button>
+    <form action="/create-checkout-session" method="POST">
+    <button type="submit">Checkout</button>
+    </form>
   </div>
 </form>
 {{/if}}
 
-<!--{{> comments post.comments}}-->
+<!--{{> comments post.comments }}-->
 
 {{#if loggedIn}}
 {{/if}}
