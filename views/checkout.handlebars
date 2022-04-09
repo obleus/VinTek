@@ -1,19 +1,18 @@
-{{> post-info post}}
+{{>checkout-info checkout }}
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="product-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="product-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add item</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit">Continue checkout</button>
   </div>
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+<!--{{> comments post.comments}}-->
 
 {{#if loggedIn}}
 {{/if}}
