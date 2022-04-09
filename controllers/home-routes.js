@@ -65,4 +65,22 @@ router.get("/products/:id", (req, res) => {
   });
 });
 
+router.get("/category/:name", (req, res) => {
+  Category.findOne({
+    where: {
+      category_name: req.params.name,
+    },
+    include: [
+      {
+        model: Product,
+      },
+    ],
+  }).then((dbCategoryData) => {
+    const products = dbCategoryData.products.map((product) =>
+      product.get({ plain: true })
+    );
+    res.render("homepage", { products, loggedIn: req.session.loggedIn });
+  });
+});
+
 module.exports = router;
