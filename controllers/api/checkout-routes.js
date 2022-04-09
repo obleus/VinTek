@@ -35,14 +35,15 @@ router.post('/create-checkout-session', async (req, res) => {
 //   query products for those unique keys and subtract by the amount the times those values show up.
 //   example 12 monitors.  */
 
-//   // var isUnique = function (arr) {
-//   //   let count = {}
-//   //   arr.forEach(element => {
-//   //     count[element] = (count[element] || 0) + 1
-//   //   })
-//   // return count
-//   // };
-//   // let uniqueProducts = isUnique (req.session.cart)
+  var isUnique = function (arr) {
+    let count = {}
+    arr.forEach(element => {
+      count[element] = (count[element] || 0) + 1
+    })
+  return count
+  };
+  
+  let uniqueProducts = isUnique (req.session.cart)
 //   /* query products for uniqueProducts key and subtract unique productsvalue from productquantity */
   
 //   /* retrieve query information. add to line itemobject array */
