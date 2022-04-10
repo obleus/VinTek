@@ -30,11 +30,9 @@
                 href="/dashboard"
                 class="font-press-start text-yellow hover:text-pink transition-all px-4"
               >My Account</a>
-              <a
-              id="checkout"
-              class="font-press-start text-yellow hover:text-pink transition-all">
-              Checkout
-              </a>
+              <form action="/api/checkout/create-checkout-session" method="POST">
+              <button class="font-press-start text-yellow hover:text-pink transition-all px-4 bg-none border-none" type="submit">Checkout</button>
+              </form>
               <a
                 id="logout"
                 class="font-press-start text-yellow hover:text-pink transition-all"
