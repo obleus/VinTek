@@ -7,15 +7,15 @@
   <div
     class="basis-1/4 w-1/4 flex flex-col justify-evenly px-5 mb-2 text-yellow"
   >
-    <div class="font-bold uppercase text-xl">{{product.product_name}}</div>
-    <div class="text-lg font-bold">${{product.price}}</div>
+    <div class="font-bold uppercase text-xl" id="product-name">{{product.product_name}}</div>
+    <div class="text-lg font-bold" id="product-price">${{product.price}}</div>
 
     <p class="pr-3 pb-4 text-justify">
       {{product.product_desc}}
     </p>
 
     <button
-      class="bg-pink text-dark-purple shadow-yellow font-press-start py-2 px-3 rounded max-w-fit checkout"
+    class="bg-pink text-dark-purple shadow-yellow font-press-start py-2 px-3 rounded max-w-fit checkout"
     >Add to Cart</button>
     <form action="/api/checkout/create-checkout-session" method="POST">
     <button type="submit">Checkout</button>
