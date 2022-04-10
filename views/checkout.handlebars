@@ -1,19 +1,22 @@
-{{> post-info post}}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+{{>checkout-info checkout }}
 
 {{#if loggedIn}}
-<form class="comment-form">
+<form class="product-form">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="product-body"></textarea>
   </div>
 
   <div>
-    <button type="submit">add item</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <form action="/create-checkout-session" method="POST">
+    <button type="submit">Checkout</button>
+    </form>
   </div>
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+<!--{{> comments post.comments }}-->
 
 {{#if loggedIn}}
 {{/if}}
