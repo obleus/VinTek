@@ -23,12 +23,12 @@
           <a href="/">VinTek</a><br />
           <span class="font-open-sans text-sm">the raddest stuff on the 'net</span>
         </h1>
-        <div class="order-2 md:order-3 items-end">
-          <nav class="flex flex-col md:flex-row justify-between">
+        <div class="order-2 items-end">
+          <nav class="flex flex-col md:flex-row justify-evenly">
             {{#if loggedIn}}
               <a
                 href="/dashboard"
-                class="font-press-start text-yellow hover:text-pink transition-all"
+                class="font-press-start text-yellow hover:text-pink transition-all px-4"
               >My Account</a>
               <a
               id="checkout"
@@ -58,7 +58,7 @@
                   class="hover:text-yellow transition-color"
                 >Monitors</a></li>
               <li class="mt-2"><a
-                  href="/category/Floppy-Disk"
+                  href="/category/Floppy-Disks"
                   class="hover:text-yellow transition-color"
                 >Floppy Disks</a></li>
               <li class="mt-2"><a
