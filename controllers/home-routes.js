@@ -53,6 +53,7 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+
 router.get("/products/:id", (req, res) => {
   Product.findOne({
     where: {
