@@ -1,4 +1,4 @@
-// import all models
+// Import all models
 const User = require("./User");
 const Category = require("./Category");
 const Product = require("./Product");
@@ -16,8 +16,11 @@ Product.belongsTo(Category, { foreignKey: "category_id" });
 // Categories have many Products
 Category.hasMany(Product);
 
+// Product belongs to ProductOrder
 Product.belongsTo(ProductOrder, { constraints: false });
 
+// ProductOrder has many Product
 ProductOrder.hasMany(Product, { constraints: false });
 
+// Export Models
 module.exports = { User, Category, Product, ProductOrder };
