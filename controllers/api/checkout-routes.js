@@ -2,13 +2,8 @@ const router = require('express').Router();
 const { ProductOrder } = require('../../models');
 const withAuth = require('../../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const YOUR_DOMAIN = 'http://localhost:3001';
 
-// const stripe,
-// stripe api key
-// route for checkout session
 
-// Create a session, then refrence the session after ProductOrder.
 router.get('/', (req, res) => {
   ProductOrder.findAll()
     .then(dbProductOrderData => res.json(dbProductOrderData))
@@ -61,28 +56,6 @@ router.post('/cart', withAuth, (req, res) => {
 });
 
 router.post('/create-checkout-session', async (req, res) => {
-  /*process req.session.cart
-  get all unique values. how many times product 3,4 show up.
-  example 12 monitors.  */
-
-  // var isUnique = function (arr) {
-  //   let count = {}
-  //   arr.forEach(element => {
-  //     count[element] = (count[element] || 0) + 1
-  //   })
-  // return count
-  // };
-
-  // let uniqueProducts = isUnique (req.session.cart)
-  // /* query products for uniqueProducts key and subtract unique productsvalue from productquantity */
-  // uniqueProducts.find({}, (err, data) => {
-  //   res.json(data);
-  // })
-  
-  /* retrieve query information. add to line itemobject array */
-  // let purchaseProduct = [] 
-  // follow syntax of line item where each object is a product that a customer bought.
-
   let cartItems = req.session.checkout
   cartItems.forEach((element,index) => {
     delete element.productID
@@ -103,42 +76,11 @@ router.post('/create-checkout-session', async (req, res) => {
       // },
       // ],
       mode: 'payment',
-      success_url: "views/success.handlebars",
-      cancel_url: "views/cancel.handlebars",
+      success_url: "https://localhost:3001/success",
+      cancel_url: "https://example.com/cancel",
     })
     res.redirect(303, session.url);
 });
-
- /*example
-  LOOK UP FOR IN LOOP, ALLOW YOU TO GRAB KEY AND VALUE
-  THIS IS PURCHASE PRODUCT 
-  [
-    {
-      price_data: {
-        currency: 'usd',
-        // extract values stored from the database
-        product_data: {
-            name: 'LG Keyboard',
-          },
-          unit_amount: 20,
-        },
-        quantity: 3, THIS REPRESENTS uniqueProducts VALUE
-    },
-  ]
-  */
-
-
-
-// router.get(routes.restore, function(req, res) {
-//   restore.crontabs(req.query.db, function(docs){
-//     res.render('restore', {
-//       routes : JSON.stringify(routes_relative),
-//       crontabs : JSON.stringify(docs),
-//       backups : crontab.get_backup_names(),
-//       db: req.query.db
-//     });
-//   });
-// });
 
 router.delete('/:id', withAuth, (req, res) => {
   ProductOrder.destroy({
