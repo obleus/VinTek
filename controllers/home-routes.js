@@ -61,8 +61,31 @@ router.get("/products/:id", (req, res) => {
     attributes: ["id", "price", "product_desc", "product_name"],
   }).then((dbProductData) => {
     const product = dbProductData.get({ plain: true });
-    res.render("product", { product });
+    res.render("product", { product, loggedIn: req.session.loggedIn });
   });
 });
+
+router.get("/category/:name", (req, res) => {
+  Category.findOne({
+    where: {
+      category_name: req.params.name,
+    },
+    include: [
+      {
+        model: Product,
+      },
+    ],
+  }).then((dbCategoryData) => {
+    const products = dbCategoryData.products.map((product) =>
+      product.get({ plain: true })
+    );
+    res.render("homepage", { products, loggedIn: req.session.loggedIn });
+  });
+});
+
+
+router.get("/success", (req, res) => {
+  res.render('success')
+})
 
 module.exports = router;

@@ -1,12 +1,5 @@
 const router = require("express").Router();
-const {
-  Product,
-  Category,
-  Order,
-  User,
-  ProductOrder,
-} = require("../../models");
-
+const { Product, ProductOrder } = require("../../models")
 // The `/api/products` endpoint
 
 // get all products
@@ -126,5 +119,6 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
