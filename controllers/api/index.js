@@ -15,8 +15,4 @@ router.use('/productorders', productOrderRoutes);
 router.use('/checkout', checkoutRoutes);
 
 
-
-
-
-
 module.exports = router;
