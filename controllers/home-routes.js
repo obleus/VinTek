@@ -83,4 +83,9 @@ router.get("/category/:name", (req, res) => {
   });
 });
 
+
+router.get("/success", (req, res) => {
+  res.render('success')
+})
+
 module.exports = router;

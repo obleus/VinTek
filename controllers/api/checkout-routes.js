@@ -57,6 +57,7 @@ router.post('/cart', withAuth, (req, res) => {
 
 router.post('/create-checkout-session', async (req, res) => {
   let cartItems = req.session.checkout
+  console.log(cartItems)
   cartItems.forEach((element,index) => {
     delete element.productID
   })
@@ -76,7 +77,7 @@ router.post('/create-checkout-session', async (req, res) => {
       // },
       // ],
       mode: 'payment',
-      success_url: "https://localhost:3001/success",
+      success_url: "http://localhost:3001/success",
       cancel_url: "https://example.com/cancel",
     })
     res.redirect(303, session.url);

@@ -5,7 +5,6 @@ const productRoutes = require('./product-routes');
 const categoryRoutes = require('./category-routes');
 const productOrderRoutes = require('./product-order-routes');
 const checkoutRoutes = require('./checkout-routes');
-const successRoutes = require('./success-routes')
 
 
 // name endpoint for routes
@@ -14,6 +13,6 @@ router.use('/products', productRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/productorders', productOrderRoutes);
 router.use('/checkout', checkoutRoutes);
-router.use('/success', successRoutes);
+
 
 module.exports = router;
