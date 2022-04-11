@@ -63,24 +63,24 @@ router.post("/create-checkout-session", async (req, res) => {
   });
   const session = await stripe.checkout.sessions.create({
     line_items: cartItems,
-    // [
-    // {
-    //   price_data: {
-    //     currency: 'usd',
-    //     // extract values stored from the database
-    //     product_data: {
-    //       name: 'Dell Monitor',
-    //     },
-    //     unit_amount: 1200,
-    //   },
-    //   quantity: 1,
-    // },
-    // ],
-    mode: "payment",
-    success_url: "http://localhost:3001/success",
-    cancel_url: "https://example.com/cancel",
-  });
-  res.redirect(303, session.url);
+      // [
+      // {
+      //   price_data: {
+      //     currency: 'usd',
+      //     // extract values stored from the database
+      //     product_data: {
+      //       name: 'Dell Monitor',
+      //     },
+      //     unit_amount: 1200,
+      //   },
+      //   quantity: 1,
+      // },
+      // ],
+      mode: 'payment',
+      success_url: "https://floating-chamber-49203.herokuapp.com/success",
+      cancel_url: "https://example.com/cancel",
+    })
+    res.redirect(303, session.url);
 });
 
 router.delete("/:id", withAuth, (req, res) => {
