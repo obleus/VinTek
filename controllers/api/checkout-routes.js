@@ -77,7 +77,7 @@ router.post("/create-checkout-session", async (req, res) => {
     // },
     // ],
     mode: "payment",
-    success_url: "http://localhost:3001/success",
+    success_url: "https://floating-chamber-49203.herokuapp.com/success",
     cancel_url: "https://example.com/cancel",
   });
   res.redirect(303, session.url);
